@@ -35,14 +35,41 @@ public class EventHandler {
 
             }
         });
-        Action left = new AbstractAction() {
+        Action leftArrow = new AbstractAction() {
             private static final long serialVersionUID = 1L;
             public void actionPerformed(ActionEvent e) {
                 game.leftArrow();
             }
         };
-        game.getInputMap().put(KeyStroke.getKeyStroke("F2"), "left");
-        game.getActionMap().put("left", left);
+        Action rightArrow = new AbstractAction() {
+            private static final long serialVersionIUD = 1L;
+            public void actionPerformed(ActionEvent e) {
+                game.rightArrow();
+            }
+        };
+        Action upArrow = new AbstractAction() {
+            private static final long serialVersionIUD = 1L;
+            public void actionPerformed(ActionEvent e) {
+                game.upArrow();
+            }
+        };
+        Action downArrow = new AbstractAction() {
+            private static final long serialVersionIUD = 1L;
+            public void actionPerformed(ActionEvent e) {
+                game.downArrow();
+            }
+        };
+        game.getInputMap(game.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("LEFT"), "leftArrow");
+        game.getActionMap().put("leftArrow", leftArrow);
+        game.getInputMap(game.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("RIGHT"), "rightArrow");
+        game.getActionMap().put("rightArrow", rightArrow);
+        game.getInputMap(game.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("UP"), "upArrow");
+        game.getActionMap().put("upArrow", upArrow);
+        game.getInputMap(game.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("DOWN"), "downArrow");
+        game.getActionMap().put("downArrow", downArrow);
+        game.setFocusable(true);
+        System.out.println("Event Handler");
+        
     }
 
 }

@@ -37,6 +37,7 @@ public class GamePanel extends JPanel implements Runnable {
         gameFrame.setResizable(false);
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameFrame.add(game);
+        gameFrame.setFocusable(true);
         game.setBackground(Color.red);
         game.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         game.setVisible(true);
@@ -76,11 +77,19 @@ public class GamePanel extends JPanel implements Runnable {
     public void rightArrow() {
         sje.offsetCoordinates(10, 0);
     } 
+    
+    public void upArrow() {
+        sje.offsetCoordinates(0, -10);
+    }
+    
+    public void downArrow() {
+        sje.offsetCoordinates(0, 10);
+    }
 
 }
 
 //TODO implement creation of game components in files
-//TODO implement key listening and mouse listening
+//TODO change the key listening to a continuous press rather than single followed by continuous
 //TODO implement imaging from files
 //TODO implement fullscreen
 //TOOD implement a class to track game state
